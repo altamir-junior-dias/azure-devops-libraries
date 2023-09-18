@@ -1,4 +1,6 @@
 (() => {
+    debugger;
+    
     window.loadLibraries = (libraries, callback) => {
         let loadedCounter = libraries.length;
 
