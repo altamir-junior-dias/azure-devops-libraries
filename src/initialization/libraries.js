@@ -1,6 +1,8 @@
 (() => {
-    debugger;
-    
+    let scripts = document.getElementsByTagName("script");
+    let src = scripts[scripts.length-1].src;
+    let path = src.replace('/initialization/libraries.js', '');
+
     window.loadLibraries = (libraries, callback) => {
         let loadedCounter = libraries.length;
 
@@ -21,13 +23,13 @@
 
     window.loadInternalLibraries = (callback) => {
         let libraries = [
-            '../libraries/core-azure-devops-backlogs.js',
-            '../libraries/core-azure-devops-iterations.js',
-            '../libraries/core-azure-devops-teams.js',
-            '../libraries/core-azure-devops-queries.js',
-            '../libraries/core-azure-devops-teams.js',
-            '../libraries/core-azure-devops-work-items.js',
-            '../libraries/core-azure-devops-work-item-types.js'
+            `${path}/libraries/azure-devops-backlogs.js`,
+            `${path}/libraries/azure-devops-iterations.js`,
+            `${path}/libraries/azure-devops-teams.js`,
+            `${path}/libraries/azure-devops-queries.js`,
+            `${path}/libraries/azure-devops-teams.js`,
+            `${path}/libraries/azure-devops-work-items.js`,
+            `${path}/libraries/azure-devops-work-item-types.js`
         ];
 
         loadLibraries(libraries, callback);
